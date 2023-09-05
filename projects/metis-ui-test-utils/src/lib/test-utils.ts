@@ -1,7 +1,6 @@
 import { HttpTestingController, TestRequest } from '@angular/common/http/testing';
 import { Observable, Subscription } from 'rxjs';
 import { reduce } from 'rxjs/operators';
-//import { jasmine }  from 'jasmine';
 
 /** getUnsubscribable
 /* export Subscription utility
