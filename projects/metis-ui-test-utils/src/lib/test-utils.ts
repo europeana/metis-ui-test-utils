@@ -1,16 +1,16 @@
 import {
   HttpTestingController,
   TestRequest
-} from "@angular/common/http/testing";
-import { Observable, Subscription } from "rxjs";
-import { reduce } from "rxjs/operators";
+} from '@angular/common/http/testing';
+import { Observable, Subscription } from 'rxjs';
+import { reduce } from 'rxjs/operators';
 
 /** getUnsubscribable
 /* export Subscription utility
 */
 export function getUnsubscribable(): Subscription {
   return {
-    unsubscribe: jasmine.createSpy("unsubscribe")
+    unsubscribe: jasmine.createSpy('unsubscribe')
   } as unknown as Subscription;
 }
 
@@ -78,7 +78,7 @@ export class MockHttpRequest {
   }
 
   public basicAuth(value: string): MockHttpRequest {
-    return this.header("Authorization", "Basic " + value);
+    return this.header('Authorization', 'Basic ' + value);
   }
 
   public send(data: unknown): void {
@@ -99,7 +99,7 @@ export class MockHttp {
 
   constructor(
     private readonly controller: HttpTestingController,
-    private readonly prefix = ""
+    private readonly prefix = ''
   ) {}
 
   public expect(method: string, url: string): MockHttpRequest {
@@ -113,7 +113,7 @@ export class MockHttp {
   public verify(): void {
     this.openRequests.forEach((r) => {
       if (!r.isClosed) {
-        expect("request for " + r.url).toBe("closed");
+        expect('request for ' + r.url).toBe('closed');
       }
     });
     this.controller.verify();
