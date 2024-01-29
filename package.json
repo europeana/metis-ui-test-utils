@@ -1,6 +1,6 @@
 {
   "name": "@europeana/metis-ui-test-utils",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "files": [
     "dist/metis-ui-test-utils/**"
   ],
@@ -10,6 +10,7 @@
   "scripts": {
     "ng": "ng",
     "build": "rm -rf ./dist && ng build",
+    "clean": "rm -rf ./dist && rm -rf ./projects/**/dist && rm -rf ./projects/**/coverage",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:dev": "ng test --code-coverage",
