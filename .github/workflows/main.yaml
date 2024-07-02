@@ -18,12 +18,6 @@ jobs:
     uses: ./.github/workflows/run-sonar.yaml
     secrets: inherit
 
-  run-output:
-    name: 'Sonar Report Link'
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo -e "| Results |  |\n| --- | --- |\n| See here | https://sonarcloud.io/code?id=europeana_metis-ui-test-utils |\n|" >> $GITHUB_STEP_SUMMARY
-
   code-format-checks:
     runs-on: ubuntu-latest
     steps:
@@ -38,3 +32,4 @@ jobs:
       - run: npm install
       - run: npm run prettier:ci
       - run: npm run lint:ci
+      - run: echo -e "| Sonar Report Link |  |\n| --- | --- |\n| See here | https://sonarcloud.io/code?id=europeana_metis-ui-test-utils |\n|" >> $GITHUB_STEP_SUMMARY
