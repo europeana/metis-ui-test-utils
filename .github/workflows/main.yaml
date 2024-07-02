@@ -9,13 +9,11 @@ on:
         type: string
 jobs:
   run-unit:
-    if: ${{ github.event.inputs.run_build == 'true' }}
     name: 'tests'
     uses: ./.github/workflows/run-tests.yaml
     secrets: inherit
 
   run-sonar:
-    if: ${{ github.event.inputs.run_build == 'true' }}
     needs: [run-unit]
     uses: ./.github/workflows/run-sonar.yaml
     secrets: inherit
@@ -32,4 +30,6 @@ jobs:
         with:
           node-version: '18.18.0'
       - run: npm install
-      - run: npm run dist
+      - run: npm prettier:ci
+      - run: npm lint:ci
+      - run: npm run publish-dry
