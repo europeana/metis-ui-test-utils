@@ -32,4 +32,3 @@ jobs:
       - run: npm install
       - run: npm run prettier:ci
       - run: npm run lint:ci
-      - run: npm run publish-dry
