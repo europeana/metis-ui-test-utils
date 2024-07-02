@@ -1,4 +1,5 @@
 name: '* Main'
+description: 'Runs code checks, tests and updates [this report](https://sonarcloud.io/code?id=europeana_metis-ui-test-utils)'
 run-name: 'Build and Test'
 on:
   workflow_dispatch:
