@@ -30,6 +30,6 @@ jobs:
         with:
           node-version: '18.18.0'
       - run: npm install
-      - run: npm prettier:ci
-      - run: npm lint:ci
+      - run: npm run prettier:ci
+      - run: npm run lint:ci
       - run: npm run publish-dry
