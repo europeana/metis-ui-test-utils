@@ -1,4 +1,7 @@
-import { HttpTestingController, TestRequest } from '@angular/common/http/testing';
+import {
+  HttpTestingController,
+  TestRequest
+} from '@angular/common/http/testing';
 import { Observable, Subscription } from 'rxjs';
 import { reduce } from 'rxjs/operators';
 
@@ -6,9 +9,9 @@ import { reduce } from 'rxjs/operators';
 /* export Subscription utility
 */
 export function getUnsubscribable(): Subscription {
-  return ({
+  return {
     unsubscribe: jasmine.createSpy('unsubscribe')
-  } as unknown) as Subscription;
+  } as unknown as Subscription;
 }
 
 /** gatherValues
@@ -26,7 +29,9 @@ export function gatherValues<Value>(observable: Observable<Value>): Value[] {
 /** gatherValuesAsync
 /* export function for deriving array of values from an observable asychronously
 */
-export function gatherValuesAsync<Value>(observable: Observable<Value>): Observable<Value[]> {
+export function gatherValuesAsync<Value>(
+  observable: Observable<Value>
+): Observable<Value[]> {
   return observable.pipe(
     reduce((acc: Array<Value>, value) => {
       return acc.concat(value);
@@ -56,7 +61,10 @@ export class MockHttpRequest {
   private hasBody = false;
   public isClosed = false;
 
-  constructor(private readonly req: TestRequest, public url: string) {}
+  constructor(
+    private readonly req: TestRequest,
+    public url: string
+  ) {}
 
   public body(body: unknown): MockHttpRequest {
     expect(this.req.request.body).toEqual(body);
@@ -89,7 +97,10 @@ export class MockHttpRequest {
 export class MockHttp {
   private readonly openRequests: MockHttpRequest[] = [];
 
-  constructor(private readonly controller: HttpTestingController, private readonly prefix = '') {}
+  constructor(
+    private readonly controller: HttpTestingController,
+    private readonly prefix = ''
+  ) {}
 
   public expect(method: string, url: string): MockHttpRequest {
     const req = this.controller.expectOne(this.prefix + url);

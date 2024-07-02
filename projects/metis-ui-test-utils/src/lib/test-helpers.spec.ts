@@ -1,4 +1,7 @@
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController
+} from '@angular/common/http/testing';
 import { async, TestBed } from '@angular/core/testing';
 import { of, throwError } from 'rxjs';
 import {
@@ -46,20 +49,20 @@ describe('test helpers', () => {
     }));
 
     it('should mock the http request', () => {
-      const fakeController = ({
-        expectOne: jasmine.createSpy().and.callFake(
-          (_: string, __: string): MockHttpRequest => {
-            return ({
+      const fakeController = {
+        expectOne: jasmine
+          .createSpy()
+          .and.callFake((_: string, __: string): MockHttpRequest => {
+            return {
               request: {
                 body: {},
                 method: 'GET'
               },
               flush: () => void 0
-            } as unknown) as MockHttpRequest;
-          }
-        ),
+            } as unknown as MockHttpRequest;
+          }),
         verify: jasmine.createSpy()
-      } as unknown) as HttpTestingController;
+      } as unknown as HttpTestingController;
 
       const mockHttp = new MockHttp(fakeController);
 
