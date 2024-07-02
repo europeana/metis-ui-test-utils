@@ -19,6 +19,7 @@ jobs:
     secrets: inherit
 
   run-output:
+    name: 'Sonar Report Link'
     runs-on: ubuntu-latest
     steps:
       - run: echo -e "| Results |  |\n| --- | --- |\n| See here | https://sonarcloud.io/code?id=europeana_metis-ui-test-utils |\n|" >> $GITHUB_STEP_SUMMARY
