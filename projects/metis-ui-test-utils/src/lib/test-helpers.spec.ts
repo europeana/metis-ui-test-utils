@@ -48,7 +48,6 @@ describe('test helpers', () => {
   describe('mocks', () => {
     beforeEach(() => {
       TestBed.configureTestingModule({
-        imports: [],
         providers: [
           provideHttpClient(withInterceptorsFromDi()),
           provideHttpClientTesting()
