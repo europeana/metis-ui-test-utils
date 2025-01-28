@@ -1,12 +1,12 @@
 {
   "name": "@europeana/metis-ui-test-utils",
-  "version": "0.0.18",
+  "version": "18.2.13",
   "files": [
     "./**"
   ],
   "peerDependencies": {
-    "@angular/common": "^17.1.1",
-    "@angular/core": "^17.1.1"
+    "@angular/common": "^18.2.13",
+    "@angular/core": "^18.2.13"
   },
   "dependencies": {
     "tslib": "^2.3.0"

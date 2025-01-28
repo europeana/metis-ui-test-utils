@@ -1,8 +1,8 @@
 import {
-  HttpClientTestingModule,
-  HttpTestingController
+  HttpTestingController,
+  provideHttpClientTesting
 } from '@angular/common/http/testing';
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { of, throwError } from 'rxjs';
 import {
   gatherError,
@@ -12,6 +12,10 @@ import {
   MockHttp,
   MockHttpRequest
 } from './test-utils';
+import {
+  provideHttpClient,
+  withInterceptorsFromDi
+} from '@angular/common/http';
 
 describe('test helpers', () => {
   it('should get the subscription', () => {
@@ -42,11 +46,15 @@ describe('test helpers', () => {
   });
 
   describe('mocks', () => {
-    beforeEach(async(() => {
+    beforeEach(() => {
       TestBed.configureTestingModule({
-        imports: [HttpClientTestingModule]
+        imports: [],
+        providers: [
+          provideHttpClient(withInterceptorsFromDi()),
+          provideHttpClientTesting()
+        ]
       }).compileComponents();
-    }));
+    });
 
     it('should mock the http request', () => {
       const fakeController = {
