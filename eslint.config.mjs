@@ -33,9 +33,9 @@ export default [{
         sourceType: "module",
 
         parserOptions: {
-            project: "/home/andy/git/metis-ui-test-utils/tsconfig.json",
+            project: "./tsconfig.json",
             noWatch: true,
-            tsconfigRootDir: "/home/andy/git/metis-ui-test-utils",
+            tsconfigRootDir: "./",
         },
     },
 
