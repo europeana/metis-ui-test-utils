@@ -10,5 +10,6 @@ export default {
     'node_modules/^(amcharts4)',
     'node_modules/^(am4map)'
   ],
+  coverageDirectory: './projects/metis-ui-test-utils/coverage',
   coverageReporters: ['lcov', 'html']
 } satisfies Config;
