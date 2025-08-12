@@ -57,9 +57,9 @@ describe('test helpers', () => {
 
     it('should mock the http request', () => {
       const fakeController = {
-        expectOne: jasmine
-          .createSpy()
-          .and.callFake((_: string, __: string): MockHttpRequest => {
+        expectOne: jest
+          .fn()
+          .mockImplementation((_: string, __: string): MockHttpRequest => {
             return {
               request: {
                 body: {},
@@ -68,7 +68,7 @@ describe('test helpers', () => {
               flush: () => void 0
             } as unknown as MockHttpRequest;
           }),
-        verify: jasmine.createSpy()
+        verify: jest.fn()
       } as unknown as HttpTestingController;
 
       const mockHttp = new MockHttp(fakeController);

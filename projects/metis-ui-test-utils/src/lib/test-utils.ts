@@ -10,7 +10,7 @@ import { reduce } from 'rxjs/operators';
 */
 export function getUnsubscribable(): Subscription {
   return {
-    unsubscribe: jasmine.createSpy('unsubscribe')
+    unsubscribe: jest.fn()
   } as unknown as Subscription;
 }
 
